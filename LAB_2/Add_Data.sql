@@ -27,5 +27,10 @@ INSERT INTO UserProducts (UserID, ProductID, Quantity)
 values(1, 1, 1);
 
 select * from userinfo;
+select * from userinfo;
+select * from userinfo;
+select * from userinfo;
+select * from userinfo;
+select * from userinfo;
 
 
