@@ -47,4 +47,23 @@ values (1, 'Sunrise', 1),
 select * from Facebook;
 select * from FacebookPosts;
 
+-- Sample add Twitter
+INSERT INTO Twitter (TwitterUserID, ProfileName, Attribute_1, Attribute_2, SocialNetworkID)
+values (1, 'John Doe', '','', 1),
+(2, 'Sally Johnson', '','', 2),
+(3, 'Bob Dowel', '','', 3),
+(4, 'James Demore', '','', 4),
+(5, 'Laura Thompson', '','', 5),
+(6, 'Bailey Anderson', '','', 6);
 
+-- Sample add TwitterPosts
+INSERT INTO TwitterPosts (PostID, PostText, Twitter_TwitterUserID)
+values (1, 'Hello World', 1),
+(2, 'Looking for fun and cruising around', 2),
+(3, 'Lets go party', 3),
+(4, 'This world needs a cleaning', 4),
+(5, 'Nap Time', 5),
+(6, 'Yummy Food', 6);
+
+select * from Twitter;
+select * from TwitterPosts;
