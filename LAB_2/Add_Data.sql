@@ -77,3 +77,34 @@ JOIN UserServices
 JOIN Services
 	ON Services.ServiceID = UserServices.ServiceID
 WHERE UserInfo.UserID = 1;
+
+-- Add Instagram Accounts
+INSERT INTO Instagram(InstagramID, ProfileName, Attribute_1, Attribute_2, SocialNetworkID)
+    VALUES  
+    (1, 'jdoe', 'great hair', 'likes cats', 1),
+    (2, 'sjohnson', 'fun', 'likes cats', 2),
+    (3, 'bdawesome', 'silly', 'likes cats', 3),
+    (4, 'jdemore', 'likes the color green', 'likes cats', 4),
+    (5, 'lathompson', 'dislikes cheesecake', 'likes cats', 5),
+    (6, 'baileyanders', 'tickles monkeys', 'likes cats', 6);
+
+-- Add Instagram Posts
+INSERT INTO InstragramPost(idInstragramPost, Picture, PostText, Instagram_InstagramID)
+    VALUES
+    (1, '', 'post from user 1', 1),
+    (2, '', 'post from user 2', 2),
+    (3, '', 'post from user 3', 3),
+    (4, '', 'post from user 4', 4),
+    (5, '', 'post from user 5', 5),
+    (6, '', 'post from user 6', 6);
+
+-- Test Query for Instagram Accounts
+SELECT * 
+FROM UserInfo
+JOIN SocialNetworks
+    ON UserInfo.UserID = SocialNetworks.UserInfo_UserID
+JOIN Instagram  
+    ON SocialNetworks.SocialNetworkID = Instagram.SocialNetworkID
+JOIN InstragramPost
+    ON InstragramPost.idInstragramPost = Instagram.InstagramID
+WHERE UserID = 1;
