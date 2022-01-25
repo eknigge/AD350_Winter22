@@ -1,6 +1,4 @@
-/*
-Add data script. Populates all tables with at least 5 records
-*/
+-- Add test data, contains at least 5 records per table
 
 -- Create user table
 INSERT INTO UserInfo (UserID, FirstName, LastName, City, Zip, Age, Gender, Income, UserInfocol, Country, Email)
@@ -60,24 +58,6 @@ INSERT INTO UserServices(UserID, ServiceID, Quantity)
     (5, 5, 1),
     (6, 4, 2);
 
--- Test Query for User Products
-SELECT * 
-FROM UserInfo
-JOIN UserProducts 
-	ON UserInfo.UserID = UserProducts.UserID
-JOIN Products
-	ON Products.ProductID = UserProducts.ProductID
-WHERE UserInfo.USerID = 1;
-
--- Test Query for User Services
-SELECT *
-FROM UserInfo
-JOIN UserServices
-	ON UserInfo.UserID = UserServices.UserID
-JOIN Services
-	ON Services.ServiceID = UserServices.ServiceID
-WHERE UserInfo.UserID = 1;
-
 -- Add Instagram Accounts
 INSERT INTO Instagram(InstagramID, ProfileName, Attribute_1, Attribute_2, SocialNetworkID)
     VALUES  
@@ -98,13 +78,39 @@ INSERT INTO InstragramPost(idInstragramPost, Picture, PostText, Instagram_Instag
     (5, '', 'post from user 5', 5),
     (6, '', 'post from user 6', 6);
 
--- Test Query for Instagram Accounts
-SELECT * 
-FROM UserInfo
-JOIN SocialNetworks
-    ON UserInfo.UserID = SocialNetworks.UserInfo_UserID
-JOIN Instagram  
-    ON SocialNetworks.SocialNetworkID = Instagram.SocialNetworkID
-JOIN InstragramPost
-    ON InstragramPost.idInstragramPost = Instagram.InstagramID
-WHERE UserID = 1;
+-- Sample add Facebooks
+INSERT INTO Facebook (FacebookUserID, ProfileName, Attribute_1, Attribute_2, SocialNetworkID)
+values (1, 'John Doe', '','', 1),
+(2, 'Sally Johnson', '','', 2),
+(3, 'Bob Dowel', '','', 3),
+(4, 'James Demore', '','', 4),
+(5, 'Laura Thompson', '','', 5),
+(6, 'Bailey Anderson', '','', 6);
+
+-- Sample add FacebookPosts
+INSERT INTO FacebookPosts (PostID, PostText, Facebook_FacebookUserID)
+values (1, 'Sunrise', 1),
+(2, 'Good Morning', 2),
+(3, 'Los Cabos', 3),
+(4, 'La Sinaloa', 4),
+(5, 'Bon Appetit', 5),
+(6, 'Gloomy', 6);
+
+-- Sample add Twitter
+INSERT INTO Twitter(TwitterID, ProfileName, Attribute_1, Attribute_2, SocialNetworkID)
+VALUES
+	(1, 'JohnDoeTwitter', '', '', 1),
+	(2, 'SallyJohnsonTwitter', '', '', 2),
+	(3, 'BobDowelTwitter', '', '', 3),
+	(4, 'JamesDemoreTwitter', '', '', 4),
+	(5, 'LauraTHompsonTwitter', '', '', 5),
+	(6, 'BaileyAndersonTwitter', '', '', 6);
+
+-- Sample add TwitterPosts
+INSERT INTO TwitterPosts (TwitterPostID, PostText, Twitter_TwitterID)
+values (1, 'Hello World', 1),
+(2, 'Looking for fun and cruising around', 2),
+(3, 'Lets go party', 3),
+(4, 'This world needs a cleaning', 4),
+(5, 'Nap Time', 5),
+(6, 'Yummy Food', 6);
